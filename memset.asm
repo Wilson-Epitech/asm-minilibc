@@ -1,9 +1,9 @@
 bits 64
 
-global my_memset
+global memset
 
 section .text
-my_memset:
+memset:
     xor rax, rax
     xor rcx, rcx
 

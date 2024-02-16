@@ -1,9 +1,9 @@
 bits 64
 
-global my_strrchr
+global strrchr
 
 section .text
-my_strrchr:
+strrchr:
     xor rax, rax
     xor rcx, rcx
 

@@ -1,9 +1,9 @@
 bits 64
 
-global my_strlen
+global strlen
 
 section .text
-my_strlen:
+strlen:
     xor rax, rax
     xor rcx, rcx
 

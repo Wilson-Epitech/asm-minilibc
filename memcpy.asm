@@ -1,9 +1,9 @@
 bits 64
 
-global my_memcpy
+global memcpy
 
 section .text
-my_memcpy:
+memcpy:
     xor rax, rax
     xor rcx, rcx
 
