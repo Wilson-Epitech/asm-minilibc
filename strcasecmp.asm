@@ -1,9 +1,9 @@
 bits 64
 
-global my_strcasecmp
+global strcasecmp
 
 section .text
-my_strcasecmp:
+strcasecmp:
     xor rcx, rcx
 
 .convert_to_lower:
