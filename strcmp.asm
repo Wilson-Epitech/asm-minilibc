@@ -18,13 +18,13 @@ strcmp:
     jmp .loop
 
 .equal:
-    xor eax, eax
+    xor rax, rax
     ret
 
 .lower:
-    mov eax, -1
+    mov rax, -1
     ret
 
 .higher:
-    mov eax, 1
+    mov rax, 1
     ret

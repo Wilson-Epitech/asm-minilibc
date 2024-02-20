@@ -4,8 +4,8 @@ global strncmp
 
 section .text
 strncmp:
-    xor r8, r8
-    xor r9, r9
+    xor r8b, r8b
+    xor r9b, r9b
     xor rcx, rcx
 
 .loop:

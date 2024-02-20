@@ -4,52 +4,59 @@ global strcasecmp
 
 section .text
 strcasecmp:
+    xor r8b, r8b
+    xor r9b, r9b
+    xor r10b, r10b
+    xor r11b, r11b
     xor rcx, rcx
-
+ 
 .convert_to_lower:
 .convert_str1
-    mov al, byte [rdi + rcx]
-    cmp al, 0
+    mov r8b, byte [rdi + rcx]
+    cmp r8b, 0
     je .loop
-    cmp al, 'A'
+    cmp r8b, 'A'
     jl .not_upper
-    cmp al, 'Z'
+    cmp r8b, 'Z'
     jg .not_upper
-    add al, 'a' - 'A'
-
+    add r8b, 'a' - 'A'
+    mov byte [rdi + rcx], r8b
+ 
 .convert_str2
-    mov al, byte [rsi + rcx]
-    cmp al, 0
+    mov r9b, byte [rsi + rcx]
+    cmp r9b, 0
     je .loop
-    cmp al, 'A'
+    cmp r9b, 'A'
     jl .not_upper
-    cmp al, 'Z'
+    cmp r9b, 'Z'
     jg .not_upper
-    add al, 'a' - 'A'
+    add r9b, 'a' - 'A'
+    mov byte [rsi + rcx], r9b
 
 .not_upper:
     inc rcx
     jmp .convert_to_lower
 
 .loop:
-    mov al, byte [rdi + rcx] 
-    mov dl, byte [rsi + rcx]
-    cmp al, dl
+    mov r10b, byte [rdi + rcx]
+    jmp .equal 
+    mov r11b, byte [rsi + rcx]
+    cmp r10b, r11b
     jl .lower
     jg .higher
-    cmp byte al, 0
+    cmp byte r10b, 0
     je .equal
     inc rcx
     jmp .loop
 
 .equal:
-    xor eax, eax
+    mov rax, rax
     ret
 
 .lower:
-    mov eax, -1
+    mov rax, -1
     ret
 
 .higher:
-    mov eax, 1
+    mov rax, 1
     ret
