@@ -4,30 +4,31 @@ global strncmp
 
 section .text
 strncmp:
-    mov rax, rdx
+    xor r8, r8
+    xor r9, r9
     xor rcx, rcx
 
 .loop:
-    cmp rcx, rax
+    cmp rcx, rdx
     je .equal
-    mov al, byte [rdi + rcx] 
-    mov dl, byte [rsi + rcx]
-    cmp al, dl
+    mov r8b, byte [rdi + rcx] 
+    mov r9b, byte [rsi + rcx]
+    cmp r8b, r9b
     jl .lower
     jg .higher
-    cmp byte al, 0
+    cmp byte r8b, 0
     je .equal
     inc rcx
     jmp .loop
 
 .equal:
-    xor eax, eax
+    xor rax, rax
     ret
 
 .lower:
-    mov eax, -1
+    mov rax, -1
     ret
 
 .higher:
-    mov eax, 1
+    mov rax, 1
     ret
