@@ -14,11 +14,11 @@ strrchr:
     jmp .len_loop
 
 .loop:
+    cmp rcx, 0
+    je .end
     cmp byte [rdi + rcx], sil
     je .found
     dec rcx;
-    cmp rcx, 0
-    je .end
     jmp .loop
 
 .found:
