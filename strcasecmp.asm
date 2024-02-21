@@ -11,7 +11,7 @@ strcasecmp:
     xor rcx, rcx
  
 .convert_to_lower:
-.convert_str1
+.convert_str1:
     mov r8b, byte [rdi + rcx]
     cmp r8b, 0
     je .loop
@@ -22,7 +22,7 @@ strcasecmp:
     add r8b, 'a' - 'A'
     mov byte [rdi + rcx], r8b
  
-.convert_str2
+.convert_str2:
     mov r9b, byte [rsi + rcx]
     cmp r9b, 0
     je .loop
