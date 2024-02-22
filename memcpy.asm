@@ -4,17 +4,17 @@ global memcpy
 
 section .text
 memcpy:
-    xor rax, rax
+    xor r8, r8
     xor rcx, rcx
 
 .loop:   
     cmp rcx, rdx
     je .end
-    mov rax, [rsi + rcx]
-    mov [rdi + rcx], rax
+    mov r9b, [rsi + rcx]
+    mov [rdi + r8], r9b
+    inc r8
     inc rcx
     jmp .loop
 
 .end:
-  mov rax, rdi
   ret
