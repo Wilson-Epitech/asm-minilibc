@@ -40,7 +40,5 @@ strstr:
     ret
 
 .end:
-    ; dec r9
-    ; xor rax, r9
     ret
 
