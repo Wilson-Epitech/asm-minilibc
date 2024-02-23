@@ -17,4 +17,5 @@ memcpy:
     jmp .loop
 
 .end:
-  ret
+    mov rax, rdi
+    ret
