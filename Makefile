@@ -13,7 +13,8 @@ SRC	=	strlen.asm 				\
 		strcmp.asm 				\
 		strncmp.asm 			\
 		strcasecmp.asm			\
-		strstr.asm
+		strstr.asm				\
+		strpbrk.asm				\
 
 CC = ld
 
