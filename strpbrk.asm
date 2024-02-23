@@ -1,35 +1,3 @@
-; bits 64
-
-; global my_strpbrk
-
-; section .text
-; my_strpbrk:
-;     xor r8, r8
-;     xor rax, rax
-;     xor rcx, rcx
-
-; .loop:
-;     cmp byte [rdi + rcx], sil
-;     je .found
-;     cmp byte [rdi + rcx], 0
-;     je .not_found
-;     inc rcx
-;     jmp .loop
-
-; .found:
-;     mov rax, rdi
-;     add rax, rcx
-;     ret
-
-; .not_found
-;     cmp, 0
-;     je .end
-;     inc rsi
-;     jmp .loop
-
-; .end:
-;     ret
-
 bits 64
 
 global strpbrk
