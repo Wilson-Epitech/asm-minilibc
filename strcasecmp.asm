@@ -57,8 +57,8 @@ strcasecmp:
     mov r10b, byte [rdi + rcx]
     mov r11b, byte [rsi + rcx]
     cmp r10b, r11b
-    jb .lower
-    ja .higher
+    jl .lower
+    jg .higher
     cmp byte r10b, 0
     je .equal
     inc rcx
