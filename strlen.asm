@@ -14,6 +14,5 @@ strlen:
     jmp .loop
 
 .end:
-    xor rcx, rcx
     mov rax, rcx
     ret
