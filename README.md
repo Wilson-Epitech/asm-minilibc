@@ -14,7 +14,7 @@
 
 <p align="center"><img src=".github/assets/term-asm-minilibc.png" alt="ASM MiniLibC" width="820"/></p>
 
-## En deux mots
+## Le projet en quelques mots
 
 Une bibliothèque dynamique `libasm.so` en assembleur NASM, qui peut **remplacer la libc** d'un vrai programme grâce à `LD_PRELOAD`. Ci-dessus, un programme C classique dont tous les appels passent par mes fonctions.
 
@@ -24,10 +24,6 @@ Une bibliothèque dynamique `libasm.so` en assembleur NASM, qui peut **remplacer
 - `strcmp`, `strncmp`, `strcasecmp`, `strstr`, `strpbrk`
 - Convention d'appel **System V AMD64** respectée (registres, valeurs de retour)
 - Utilisable directement avec `LD_PRELOAD` sur n'importe quel binaire
-
-## Sous le capot
-
-Chaque fonction est un symbole global dans son propre fichier `.asm`, assemblé en objet position-indépendant puis lié en `.so`. Les arguments arrivent dans `rdi`, `rsi` et `rdx`, et le résultat repart dans `rax`.
 
 ## Lancer le projet
 
