@@ -3,31 +3,28 @@ bits 64
 global strpbrk
 
 section .text
+; char *strpbrk(const char *s, const char *accept)
+; returns a pointer to the first char of s that appears in accept, or NULL
 strpbrk:
-    xor r10b, r10b
-    xor r9, r9
-    xor rax, rax
+.outer:
+    mov al, byte [rdi]
+    test al, al
+    je .none
     xor rcx, rcx
-
-.loop:
-    cmp byte [rsi + r9], 0
-    je .end
-    cmp byte [rdi + rcx], 0
-    je .end
-    add r10b, byte [rsi + r9]
-    cmp byte [rdi + rcx], r10b
+.inner:
+    mov dl, byte [rsi + rcx]
+    test dl, dl
+    je .next
+    cmp al, dl
     je .found
-    jne .not_found
-
-.found:
-    mov rax, rsi
-    add rax, r9
-    ret
-
-.not_found:
-    inc r9
     inc rcx
-    jmp .loop
-
-.end:
+    jmp .inner
+.next:
+    inc rdi
+    jmp .outer
+.found:
+    mov rax, rdi
+    ret
+.none:
+    xor rax, rax
     ret
