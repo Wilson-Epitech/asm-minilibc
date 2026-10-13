@@ -28,6 +28,6 @@ Une bibliothèque dynamique `libasm.so` en assembleur NASM, qui peut **remplacer
 ## Lancer le projet
 
 ```bash
-make            # nécessite nasm, Linux x86-64
+make
 LD_PRELOAD=./libasm.so ./ton_programme
 ```
